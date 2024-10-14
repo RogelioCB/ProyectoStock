@@ -5,6 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,11 +20,13 @@ class MyApp extends StatelessWidget {
 }
 
 class PrimeraPantalla extends StatelessWidget {
+  const PrimeraPantalla({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Stock Carpintería'),
+        title: const Text('Stock Carpintería'),
       ),
       body: Center(
         child: ElevatedButton(
@@ -33,7 +37,7 @@ class PrimeraPantalla extends StatelessWidget {
               MaterialPageRoute(builder: (context) => SegundaPantalla()),
             );
           },
-          child: Text('Stock referencia'),
+          child: const Text('Stock referencia'),
         ),
       ),
     );
@@ -41,13 +45,15 @@ class PrimeraPantalla extends StatelessWidget {
 }
 
 class SegundaPantalla extends StatelessWidget {
+  const SegundaPantalla({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Buscar producto'),
+        title: const Text('Buscar producto'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Buscar producto/EAN'),
       ),
     );
