@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,14 +14,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: DropdownButtonExample(),
+      home: const DropdownButtonExample(),
     );
   }
 }
 
 class DropdownButtonExample extends StatefulWidget {
+  const DropdownButtonExample({super.key});
+
   @override
-  _DropdownButtonExampleState createState() => _DropdownButtonExampleState();
+  State<DropdownButtonExample> createState() => _DropdownButtonExampleState();
 }
 
 class _DropdownButtonExampleState extends State<DropdownButtonExample> {
@@ -36,7 +40,7 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Nombre de la empresa'),
+        title: const Text('Nombre de la empresa'),
       ),
       body: Center(
         child: Column(
@@ -44,7 +48,7 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
           children: [
             // DropdownButton para la lista desplegable
             DropdownButton<String>(
-              hint: Text('Stock'),
+              hint: const Text('Stock'),
               value: _opcionSeleccionada,
               items: _opciones.map((String opcion) {
                 return DropdownMenuItem<String>(
@@ -70,17 +74,17 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
     if (opcion == 'Stock producto') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Pantalla1()),
+        MaterialPageRoute(builder: (context) => const Pantalla1()),
       );
     } else if (opcion == 'Añadir material') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Pantalla2()),
+        MaterialPageRoute(builder: (context) => const Pantalla2()),
       );
     } else if (opcion == 'Registro uso material') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Pantalla3()),
+        MaterialPageRoute(builder: (context) => const Pantalla3()),
       );
     }
   }
@@ -88,13 +92,15 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
 
 // Pantallas de destino
 class Pantalla1 extends StatelessWidget {
+  const Pantalla1({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Stock producto'),
+        title: const Text('Stock producto'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Agregar buscador'),
       ),
     );
@@ -102,13 +108,15 @@ class Pantalla1 extends StatelessWidget {
 }
 
 class Pantalla2 extends StatelessWidget {
+  const Pantalla2({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Agregar material'),
+        title: const Text('Agregar material'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Agregar material'),
       ),
     );
@@ -116,13 +124,15 @@ class Pantalla2 extends StatelessWidget {
 }
 
 class Pantalla3 extends StatelessWidget {
+  const Pantalla3({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Registro uso material'),
+        title: const Text('Registro uso material'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Registro uso material'),
       ),
     );
