@@ -21,6 +21,9 @@ class MyApp extends StatelessWidget {
       title: 'Nombre de la empresa',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+         appBarTheme: AppBarTheme(
+          backgroundColor: const Color.fromARGB(255, 143, 77, 155),
+        )
       ),
       home: DropdownButtonExample(),
     );
@@ -31,7 +34,7 @@ class DropdownButtonExample extends StatefulWidget {
   const DropdownButtonExample({super.key});
 
   @override
-  State<DropdownButtonExample> createState() => _DropdownButtonExampleState();
+  _DropdownButtonExampleState createState() => _DropdownButtonExampleState();
 }
 
 class _DropdownButtonExampleState extends State<DropdownButtonExample> {
@@ -48,27 +51,61 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Nombre de la empresa'),
+        title: const Text('Nombre de la empresa'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // DropdownButton para la lista desplegable
-            DropdownButton<String>(
-              hint: Text('Stock'),
-              value: _opcionSeleccionada,
-              items: _opciones.map((String opcion) {
-                return DropdownMenuItem<String>(
-                  value: opcion,
-                  child: Text(opcion),
+            // Wrap DropdownButton in a Container to style it like an ElevatedButton
+            Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.onSecondary, // ElevatedButton background color
+                borderRadius: BorderRadius.circular(8), // ElevatedButton rounded corners
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: const Offset(0, 3), // ElevatedButton shadow
+                  ),
+                ],
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 16), // Add padding
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+                  hint: const Text(
+                    'Stock',
+                    style: TextStyle(color: Color.fromARGB(255, 73, 11, 83)), // White text color
+                  ),
+                  value: _opcionSeleccionada,
+                  icon: const Icon(Icons.arrow_drop_down, color: Color.fromARGB(255, 73, 11, 83)), // White arrow icon
+                  dropdownColor: Theme.of(context).colorScheme.primary, // Dropdown background color
+                  style: const TextStyle(color: Color.fromARGB(255, 73, 11, 83)), // White text inside the dropdown
+                  onChanged: (String? nuevaOpcion) {
+                    setState(() {
+                      _opcionSeleccionada = nuevaOpcion;
+                    });
+                    _navegarAPantalla(context, nuevaOpcion);
+                  },
+                  items: _opciones.map<DropdownMenuItem<String>>((String opcion) {
+                    return DropdownMenuItem<String>(
+                      value: opcion,
+                      child: Text(opcion, style: const TextStyle(color: Colors.white)), // White text in options
+                    );
+                  }).toList(),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20), // Add spacing between the dropdown and button
+            ElevatedButton(
+              child: const Text('Proyecto'),
+              onPressed: () {
+                // Navigate to second route when tapped.
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SecondRoute()),
                 );
-              }).toList(),
-              onChanged: (String? nuevaOpcion) {
-                setState(() {
-                  _opcionSeleccionada = nuevaOpcion;
-                });
-                _navegarAPantalla(context, nuevaOpcion);
               },
             ),
           ],
@@ -78,23 +115,39 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
   }
 
   // Función para navegar a la pantalla seleccionada
-  void _navegarAPantalla(BuildContext context, String? opcion) {
+void _navegarAPantalla(BuildContext context, String? opcion) {
     if (opcion == 'Stock producto') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Pantalla1()),
+        MaterialPageRoute(builder: (context) => const Pantalla1()),
       );
     } else if (opcion == 'Añadir material') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Pantalla2()),
+        MaterialPageRoute(builder: (context) => const Pantalla2()),
       );
     } else if (opcion == 'Registro uso material') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Pantalla3()),
+        MaterialPageRoute(builder: (context) => const Pantalla3()),
       );
     }
+  }
+}
+
+
+class SecondRoute extends StatelessWidget {
+  const SecondRoute({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Proyectos'),
+      ),
+      body: const Center(
+      ),
+    );
   }
 }
 
@@ -106,9 +159,9 @@ class Pantalla1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Stock producto'),
+        title: const Text('Stock producto'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Agregar buscador'),
       ),
     );
@@ -122,9 +175,9 @@ class Pantalla2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Agregar material'),
+        title: const Text('Agregar material'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Agregar material'),
       ),
     );
@@ -138,9 +191,9 @@ class Pantalla3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Registro uso material'),
+        title: const Text('Registro uso material'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Registro uso material'),
       ),
     );
