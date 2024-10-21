@@ -56,12 +56,14 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Wrap DropdownButton in a Container to style it like an ElevatedButton
             Container(
+              alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.onSecondary, // ElevatedButton background color
-                borderRadius: BorderRadius.circular(8), // ElevatedButton rounded corners
+                borderRadius: BorderRadius.circular(10), // ElevatedButton rounded corners
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.2),
@@ -75,6 +77,7 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
               child: DropdownButtonHideUnderline(
                 child: DropdownButton<String>(
                   hint: const Text(
+                    
                     'Stock',
                     style: TextStyle(color: Color.fromARGB(255, 73, 11, 83)), // White text color
                   ),
@@ -91,13 +94,14 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
                   items: _opciones.map<DropdownMenuItem<String>>((String opcion) {
                     return DropdownMenuItem<String>(
                       value: opcion,
-                      child: Text(opcion, style: const TextStyle(color: Colors.white)), // White text in options
+                      child: Text(opcion, style: const TextStyle(color: Colors.purple)), // White text in options
                     );
                   }).toList(),
                 ),
               ),
             ),
-            const SizedBox(height: 20), // Add spacing between the dropdown and button
+            const SizedBox(height: 20),
+            // Add spacing between the dropdown and button
             ElevatedButton(
               child: const Text('Proyecto'),
               onPressed: () {
