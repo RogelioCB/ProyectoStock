@@ -1,3 +1,4 @@
+import 'package:fancy_button_flutter/fancy_button_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/firebase_options.dart';
@@ -44,6 +45,9 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
   // Valor seleccionado actualmente
   String? _opcionSeleccionada;
 
+  //añadir que hace el boton logout al presionarlo
+  get onPressed => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,30 +75,47 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
                 _navegarAPantalla(context, nuevaOpcion);
               },
             ),
+            //Boton logout
+            ElevatedButton(
+                onPressed: () {},
+                child: FancyButton(
+                    button_icon: Icons.logout,
+                    button_text: "  Salir/Logout  ",
+                    button_height: 40,
+                    button_width: 300,
+                    button_radius: 100,
+                    button_color: Colors.red,
+                    button_outline_color: Colors.red,
+                    button_outline_width: 1,
+                    button_text_color: Colors.white,
+                    button_icon_color: Colors.white,
+                    icon_size: 44,
+                    button_text_size: 30,
+                    onClick: () {})),
           ],
         ),
       ),
     );
   }
+}
 
-  // Función para navegar a la pantalla seleccionada
-  void _navegarAPantalla(BuildContext context, String? opcion) {
-    if (opcion == 'Stock producto') {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => Pantalla1()),
-      );
-    } else if (opcion == 'Añadir material') {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => Pantalla2()),
-      );
-    } else if (opcion == 'Registro uso material') {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => Pantalla3()),
-      );
-    }
+// Función para navegar a la pantalla seleccionada
+void _navegarAPantalla(BuildContext context, String? opcion) {
+  if (opcion == 'Stock producto') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Pantalla1()),
+    );
+  } else if (opcion == 'Añadir material') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Pantalla2()),
+    );
+  } else if (opcion == 'Registro uso material') {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Pantalla3()),
+    );
   }
 }
 
