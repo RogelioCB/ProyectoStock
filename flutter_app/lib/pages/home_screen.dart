@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/widgets/dropdown_stock_button_widget.dart';
+import 'package:flutter_app/widgets/logout_button_widget.dart';
 
 class PantallaPrincipal extends StatelessWidget {
   const PantallaPrincipal({super.key});
@@ -8,10 +9,17 @@ class PantallaPrincipal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dropdown Navigation Example'),
+        title: Text('Menu Principal'),
       ),
       body: Center(
-        child: DropdownButtonMenuPrincipal(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            DropdownButtonMenuPrincipal(),
+            SizedBox(height: 20),
+            LogoutButton()
+          ],
+        ),
       ),
     );
   }

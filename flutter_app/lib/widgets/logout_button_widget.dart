@@ -26,7 +26,7 @@ class LogoutButton extends StatelessWidget {
             icon_size: 40,
             button_text_size: 28,
             onClick: () {
-              // Añadir funcionalidad para volver a pantalla login
+              Navigator.pop(context);
             },
           ),
         ),
