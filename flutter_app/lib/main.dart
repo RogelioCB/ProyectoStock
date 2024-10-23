@@ -21,10 +21,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Nombre de la empresa',
       theme: ThemeData(
-          primarySwatch: Colors.blue,
-          appBarTheme: AppBarTheme(
-            backgroundColor: const Color.fromARGB(255, 143, 77, 155),
-          )),
+        primarySwatch: Colors.blue,
+         appBarTheme: AppBarTheme(
+          backgroundColor: const Color.fromARGB(255, 143, 77, 155),
+        )
+      ),
       home: LoginPage(),
     );
   }
