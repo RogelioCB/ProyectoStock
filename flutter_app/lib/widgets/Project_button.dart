@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/Project_screen.dart';
 
 
-class Projectbutton extends StatefulWidget {
-  const Projectbutton({super.key});
+class Project_button extends StatefulWidget {
+  const Project_button({super.key});
 
   @override
-  State<Projectbutton> createState() => _ProjectbuttonState();
+  State<Project_button> createState() => _Project_button();
 }
 
-class _ProjectbuttonState extends State<Projectbutton> {
+class _Project_button extends State<Project_button> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
