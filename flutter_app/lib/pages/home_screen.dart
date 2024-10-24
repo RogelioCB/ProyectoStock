@@ -9,7 +9,7 @@ class PantallaPrincipal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Menu Principal'),
+        title: Text('Pantalla Principal'),
       ),
       body: Center(
         child: Column(
