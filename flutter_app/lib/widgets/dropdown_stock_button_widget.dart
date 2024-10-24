@@ -24,34 +24,21 @@ class _DropdownButtonMenuPrincipalState
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Nombre de la empresa'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // DropdownButton para la lista desplegable
-            DropdownButton<String>(
-              hint: Text('Stock'),
-              value: _opcionSeleccionada,
-              items: _opciones.map((String opcion) {
-                return DropdownMenuItem<String>(
-                  value: opcion,
-                  child: Text(opcion),
-                );
-              }).toList(),
-              onChanged: (String? nuevaOpcion) {
-                setState(() {
-                  _opcionSeleccionada = nuevaOpcion;
-                });
-                _navegarAPantalla(context, nuevaOpcion);
-              },
-            ),
-          ],
-        ),
-      ),
+    return DropdownButton<String>(
+      hint: Text('Stock'),
+      value: _opcionSeleccionada,
+      items: _opciones.map((String opcion) {
+        return DropdownMenuItem<String>(
+          value: opcion,
+          child: Text(opcion),
+        );
+      }).toList(),
+      onChanged: (String? nuevaOpcion) {
+        setState(() {
+          _opcionSeleccionada = nuevaOpcion;
+        });
+        _navegarAPantalla(context, nuevaOpcion);
+      },
     );
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/home_screen.dart';
 
 class LoginPage extends StatelessWidget {
   final TextEditingController _usernameController = TextEditingController();
@@ -30,6 +31,10 @@ class LoginPage extends StatelessWidget {
                 String username = _usernameController.text;
                 String password = _passwordController.text;
                 print('Username: $username, Password: $password');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PantallaPrincipal()),
+                );
               },
               child: Text('Login'),
             ),

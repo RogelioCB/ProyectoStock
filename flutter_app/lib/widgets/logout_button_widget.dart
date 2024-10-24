@@ -6,31 +6,22 @@ class LogoutButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Boton Logout/Salir'),
-        ),
-        body: Center(
-          child: FancyButton(
-            button_icon: Icons.logout,
-            button_text: "  Salir/Logout  ",
-            button_height: 40,
-            button_width: 300,
-            button_radius: 100,
-            button_color: Colors.red,
-            button_outline_color: Colors.black,
-            button_outline_width: 1,
-            button_text_color: Colors.white,
-            button_icon_color: Colors.white,
-            icon_size: 40,
-            button_text_size: 28,
-            onClick: () {
-              // Añadir funcionalidad para volver a pantalla login
-            },
-          ),
-        ),
-      ),
+    return FancyButton(
+      button_icon: Icons.logout,
+      button_text: "  Salir/Logout  ",
+      button_height: 40,
+      button_width: 300,
+      button_radius: 100,
+      button_color: Colors.red,
+      button_outline_color: Colors.black,
+      button_outline_width: 1,
+      button_text_color: Colors.white,
+      button_icon_color: Colors.white,
+      icon_size: 40,
+      button_text_size: 28,
+      onClick: () {
+        Navigator.pop(context);
+      },
     );
   }
 }
