@@ -19,18 +19,25 @@ class _Project_button extends State<Project_button> {
         ),
         toolbarHeight: 100,
       ),
-      body:Column(
-        children: [
-           ElevatedButton(
+
+
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          
+          children: [
+            Spacer(flex: 2,),
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> Project_screen()));
               },
               child: const Center(child: Text("proyectos")),
-          ),
-         
-        ],
+            ), 
+            Spacer(flex: 5,),
+          ],
+          
+        )
       ),
-
     );
   }
 }
