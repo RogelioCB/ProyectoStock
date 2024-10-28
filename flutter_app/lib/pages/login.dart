@@ -32,11 +32,17 @@ class LoginPage extends StatelessWidget {
               onPressed: () {
                 String username = _usernameController.text;
                 String password = _passwordController.text;
-                print('Username: $username, Password: $password');
+                
+                if ( username == 'admin' && password == 'admin') {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => PantallaPrincipal()),
                 );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Usuario o contraseña incorrectos')),
+                  );
+                }
               },
               child: Text('Login'),
             ),
