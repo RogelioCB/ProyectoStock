@@ -1,8 +1,9 @@
 import 'package:fancy_button_flutter/fancy_button_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/material_input_screen.dart';
 
 class AddMaterialButton extends StatelessWidget {
-  const AddMaterialButton ({super.key});
+  const AddMaterialButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +19,10 @@ class AddMaterialButton extends StatelessWidget {
       button_icon_color: Colors.white,
       icon_size: 40,
       button_text_size: 28,
-      onClick: () {      
-        Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => PantallaAddMAterial())
-                  ),
+      onClick: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => PantallaAddMaterial()));
       },
     );
   }
 }
-
