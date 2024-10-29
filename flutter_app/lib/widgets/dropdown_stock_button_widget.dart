@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/pages/material_add_screen.dart';
+import 'package:flutter_app/pages/location_stock_screen.dart';
 import 'package:flutter_app/pages/material_record_screen.dart';
 import 'package:flutter_app/pages/material_stock_screen.dart';
 
@@ -16,7 +16,7 @@ class _DropdownButtonMenuPrincipalState
   // Lista de opciones para el desplegable
   final List<String> _opciones = [
     'Stock producto',
-    'Añadir material',
+    'Stock Ubicacion',
     'Registro uso material'
   ];
   // Valor seleccionado actualmente
@@ -49,10 +49,10 @@ class _DropdownButtonMenuPrincipalState
         context,
         MaterialPageRoute(builder: (context) => PantallaStockProducto()),
       );
-    } else if (opcion == 'Añadir material') {
+    } else if (opcion == 'Stock Ubicacion') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => PantallaIncrementarMaterial()),
+        MaterialPageRoute(builder: (context) => PantallaStockUbicacion()),
       );
     } else if (opcion == 'Registro uso material') {
       Navigator.push(
