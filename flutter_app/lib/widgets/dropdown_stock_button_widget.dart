@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/pages/material_add_screen.dart';
+import 'package:flutter_app/pages/location_stock_screen.dart';
 import 'package:flutter_app/pages/material_record_screen.dart';
 import 'package:flutter_app/pages/material_stock_screen.dart';
 
@@ -16,7 +16,7 @@ class _DropdownButtonMenuPrincipalState
   // Lista de opciones para el desplegable
   final List<String> _opciones = [
     'Stock producto',
-    'Añadir material',
+    'Stock Ubicacion',
     'Registro uso material'
   ];
   // Valor seleccionado actualmente
@@ -24,34 +24,21 @@ class _DropdownButtonMenuPrincipalState
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Nombre de la empresa'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // DropdownButton para la lista desplegable
-            DropdownButton<String>(
-              hint: Text('Stock'),
-              value: _opcionSeleccionada,
-              items: _opciones.map((String opcion) {
-                return DropdownMenuItem<String>(
-                  value: opcion,
-                  child: Text(opcion),
-                );
-              }).toList(),
-              onChanged: (String? nuevaOpcion) {
-                setState(() {
-                  _opcionSeleccionada = nuevaOpcion;
-                });
-                _navegarAPantalla(context, nuevaOpcion);
-              },
-            ),
-          ],
-        ),
-      ),
+    return DropdownButton<String>(
+      hint: Text('Stock'),
+      value: _opcionSeleccionada,
+      items: _opciones.map((String opcion) {
+        return DropdownMenuItem<String>(
+          value: opcion,
+          child: Text(opcion),
+        );
+      }).toList(),
+      onChanged: (String? nuevaOpcion) {
+        setState(() {
+          _opcionSeleccionada = nuevaOpcion;
+        });
+        _navegarAPantalla(context, nuevaOpcion);
+      },
     );
   }
 
@@ -62,10 +49,10 @@ class _DropdownButtonMenuPrincipalState
         context,
         MaterialPageRoute(builder: (context) => PantallaStockProducto()),
       );
-    } else if (opcion == 'Añadir material') {
+    } else if (opcion == 'Stock Ubicacion') {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => PantallaIncrementarMaterial()),
+        MaterialPageRoute(builder: (context) => PantallaStockUbicacion()),
       );
     } else if (opcion == 'Registro uso material') {
       Navigator.push(

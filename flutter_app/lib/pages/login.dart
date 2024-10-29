@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'home_screen.dart'; // Asegúrate de importar tu pantalla principal
 
 class LoginPage extends StatelessWidget {
   final TextEditingController _usernameController = TextEditingController();
@@ -19,7 +21,7 @@ class LoginPage extends StatelessWidget {
           children: [
             TextField(
               controller: _usernameController,
-              decoration: InputDecoration(labelText: 'Username'),
+              decoration: InputDecoration(labelText: 'Email'), // Cambié a "Email"
             ),
             TextField(
               controller: _passwordController,
@@ -28,10 +30,27 @@ class LoginPage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                String username = _usernameController.text;
-                String password = _passwordController.text;
-                print('Username: $username, Password: $password');
+              onPressed: () async {
+                String email = _usernameController.text.trim();
+                String password = _passwordController.text.trim();
+                
+                try {
+                  // Intenta iniciar sesión con Firebase
+                  // ignore: unused_local_variable
+                  UserCredential userCredential = await FirebaseAuth.instance
+                      .signInWithEmailAndPassword(email: email, password: password);
+                  
+                  // Si el inicio de sesión es exitoso, navega a la pantalla principal
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => PantallaPrincipal()),
+                  );
+                } catch (e) {
+                  // Muestra un mensaje de error si el inicio de sesión falla
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Usuario o contraseña incorrectos')),
+                  );
+                }
               },
               child: Text('Login'),
             ),
