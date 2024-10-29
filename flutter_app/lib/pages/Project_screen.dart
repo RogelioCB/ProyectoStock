@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Project_screen extends StatefulWidget {
-  const Project_screen({super.key});
+   const Project_screen({super.key});
 
   @override
   State<Project_screen> createState() => _Project_screenState();
@@ -17,9 +17,9 @@ class _Project_screenState extends State<Project_screen> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Spacer(flex: 10),
+            //const Spacer(flex: 10),
             IconButton(
               icon: const Icon(Icons.add_box),
               iconSize: 50,
