@@ -1,7 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/firebase_options.dart';
+import 'package:flutter_app/widgets/dropdown_stock_button_widget.dart';
+import 'pages/home_screen.dart';
 import 'pages/login.dart';
+import 'widgets/Project_button.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,19 +16,25 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final DropdownButtonMenuPrincipal dropdownButtonMenuPrincipal = DropdownButtonMenuPrincipal();
+  final Project_button project_button = Project_button();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp( 
       title: 'Nombre de la empresa',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-         appBarTheme: AppBarTheme(
-          backgroundColor: const Color.fromARGB(255, 143, 77, 155),
-        )
-      ),
-      home: LoginPage(),
+          primarySwatch: Colors.blue,
+          
+          appBarTheme: AppBarTheme(
+            backgroundColor: Colors.grey[800],
+          )),
+        home: LoginPage()
     );
+    
   }
 }
+
+
+
