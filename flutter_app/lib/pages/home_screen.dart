@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widgets/Project_button.dart';
 import 'package:flutter_app/widgets/dropdown_stock_button_widget.dart';
 import 'package:flutter_app/widgets/logout_button_widget.dart';
 import 'package:flutter_app/widgets/material_input_button.dart';
@@ -10,6 +11,8 @@ class PantallaPrincipal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.grey[800],
         title: Text('Pantalla Principal'),
       ),
       body: Center(
@@ -19,6 +22,8 @@ class PantallaPrincipal extends StatelessWidget {
             AddMaterialButton(),
             SizedBox(height: 20),
             DropdownButtonMenuPrincipal(),
+            SizedBox(height: 20),
+            Project_button(),
             SizedBox(height: 20),
             LogoutButton()
           ],
