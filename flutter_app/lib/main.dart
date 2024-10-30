@@ -26,16 +26,11 @@ class MyApp extends StatelessWidget {
       title: 'Nombre de la empresa',
       theme: ThemeData(
           primarySwatch: Colors.blue,
+          
           appBarTheme: AppBarTheme(
-            backgroundColor: const Color.fromARGB(255, 143, 77, 155),
+            backgroundColor: Colors.grey[800],
           )),
-        home: Column(
-          children: <Widget>[
-            Project_button(),
-            DropdownButtonMenuPrincipal(),
-
-          ],
-        )
+        home: LoginPage()
     );
     
   }
