@@ -24,21 +24,48 @@ class _DropdownButtonMenuPrincipalState
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      hint: Text('Stock'),
-      value: _opcionSeleccionada,
-      items: _opciones.map((String opcion) {
-        return DropdownMenuItem<String>(
-          value: opcion,
-          child: Text(opcion),
-        );
-      }).toList(),
-      onChanged: (String? nuevaOpcion) {
-        setState(() {
-          _opcionSeleccionada = nuevaOpcion;
-        });
-        _navegarAPantalla(context, nuevaOpcion);
-      },
+    return Container(
+      height: 40,
+      width: 300,
+      decoration: BoxDecoration(
+        color: Colors.lightBlue,
+        borderRadius: BorderRadius.circular(100),
+        border: Border.all(color: Colors.black, width: 1),
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      child: Center(
+        child: DropdownButtonHideUnderline(
+          child: DropdownButton<String>(
+            isExpanded: true,
+            hint: Center(
+              child: Text(
+                "Stock",
+                style: TextStyle(color: Colors.white, fontSize: 28),
+              ),
+            ),
+            value: _opcionSeleccionada,
+            icon: Icon(Icons.arrow_drop_down, color: Colors.white, size: 40),
+            dropdownColor: Colors.lightBlue,
+            items: _opciones.map((String opcion) {
+              return DropdownMenuItem<String>(
+                value: opcion,
+                child: Center(
+                  child: Text(
+                    opcion,
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              );
+            }).toList(),
+            onChanged: (String? nuevaOpcion) {
+              setState(() {
+                _opcionSeleccionada = nuevaOpcion;
+              });
+              _navegarAPantalla(context, nuevaOpcion);
+            },
+          ),
+        ),
+      ),
     );
   }
 

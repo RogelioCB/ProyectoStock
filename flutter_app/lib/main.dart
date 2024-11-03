@@ -17,24 +17,19 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
-  final DropdownButtonMenuPrincipal dropdownButtonMenuPrincipal = DropdownButtonMenuPrincipal();
+  final DropdownButtonMenuPrincipal dropdownButtonMenuPrincipal =
+      DropdownButtonMenuPrincipal();
   final Project_button project_button = Project_button();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp( 
-      title: 'Nombre de la empresa',
-      theme: ThemeData(
-          primarySwatch: Colors.blue,
-          
-          appBarTheme: AppBarTheme(
-            backgroundColor: Colors.grey[800],
-          )),
-        home: LoginPage()
-    );
-    
+    return MaterialApp(
+        title: 'Nombre de la empresa',
+        theme: ThemeData(
+            primarySwatch: Colors.blue,
+            appBarTheme: AppBarTheme(
+              backgroundColor: Colors.grey[800],
+            )),
+        home: LoginPage());
   }
 }
-
-
-

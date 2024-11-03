@@ -12,7 +12,7 @@ class LogoutButton extends StatelessWidget {
       button_height: 40,
       button_width: 300,
       button_radius: 100,
-      button_color: Colors.red,
+      button_color: Colors.lightBlue,
       button_outline_color: Colors.black,
       button_outline_width: 1,
       button_text_color: Colors.white,
