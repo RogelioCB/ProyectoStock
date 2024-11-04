@@ -13,6 +13,8 @@ class _Project_screenState extends State<Project_screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.blue[900],
         title: Text('Proyectos'),
       ),
       body: Center(
@@ -23,6 +25,7 @@ class _Project_screenState extends State<Project_screen> {
             IconButton(
               icon: const Icon(Icons.add_box),
               iconSize: 50,
+              color: Colors.lightBlue,
               onPressed: (){
               },
             )

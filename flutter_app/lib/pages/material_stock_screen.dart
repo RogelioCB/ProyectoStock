@@ -7,6 +7,8 @@ class PantallaStockProducto extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.blue[900],
         title: Text('Stock producto'),
       ),
       body: Center(

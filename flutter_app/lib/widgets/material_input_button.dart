@@ -9,6 +9,7 @@ class AddMaterialButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FancyButton(
       button_text: "  Entradas  ",
+      button_icon: Icons.menu_open,
       button_height: 40,
       button_width: 300,
       button_radius: 100,

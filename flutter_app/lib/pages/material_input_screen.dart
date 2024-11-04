@@ -8,6 +8,8 @@ class PantallaAddMaterial extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.blue[900],
         title: Text('Añadir Material'),
       ),
       body: Center(

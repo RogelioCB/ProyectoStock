@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/firebase_options.dart';
 import 'package:flutter_app/widgets/dropdown_stock_button_widget.dart';
-import 'pages/home_screen.dart';
 import 'pages/login.dart';
 import 'widgets/Project_button.dart';
 
