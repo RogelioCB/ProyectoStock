@@ -9,6 +9,9 @@ class PantallaStockProducto extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Buscar Stock Referencia/EAN'),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.blue[900],
+        title: Text('Stock producto'),
       ),
       body: Center(
         child: Column(

@@ -1,5 +1,6 @@
 import 'package:fancy_button_flutter/fancy_button_flutter.dart';
 import 'package:flutter/material.dart';
+import '../pages/login.dart';
 
 class LogoutButton extends StatelessWidget {
   const LogoutButton({super.key});
@@ -8,7 +9,7 @@ class LogoutButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FancyButton(
       button_icon: Icons.logout,
-      button_text: "  Salir/Logout  ",
+      button_text: "  Cerrar sesión  ",
       button_height: 40,
       button_width: 300,
       button_radius: 100,
@@ -20,7 +21,11 @@ class LogoutButton extends StatelessWidget {
       icon_size: 40,
       button_text_size: 28,
       onClick: () {
-        Navigator.pop(context);
+        // Navegar a la página LoginPage
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => LoginPage()),
+        );
       },
     );
   }

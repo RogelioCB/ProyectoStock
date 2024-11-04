@@ -5,20 +5,24 @@ import 'package:flutter/material.dart';
 class MyTextfild extends StatelessWidget {
   final String labelText;
   final bool obscureText;
-  final controller;
-  const MyTextfild(
-      {super.key,
-      //required TextEditingController controller,
-      required this.obscureText, 
-      required this.controller, 
-      required this.labelText});
+  final TextEditingController controller;
+  final double width; // Nuevo parámetro
+
+  const MyTextfild({
+    Key? key,
+    required this.obscureText,
+    required this.controller,
+    required this.labelText,
+    this.width = double.infinity, // Valor por defecto
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0),
-      child: TextField(
-         //controller: _usernameController,
+    return SizedBox(
+      width: width, // Usamos el ancho proporcionado
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+        child: TextField(
           controller: controller,
           obscureText: obscureText,
           decoration: InputDecoration(
@@ -26,12 +30,14 @@ class MyTextfild extends StatelessWidget {
               borderSide: BorderSide(color: Colors.white),
             ),
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade400)),
+              borderSide: BorderSide(color: Colors.grey.shade400),
+            ),
             fillColor: Colors.grey.shade200,
             filled: true,
             labelStyle: TextStyle(color: Colors.grey[500]),
-            labelText: 'Email'
-            ), // Cambié a "Email"
+            labelText: labelText, // Cambié a usar el labelText pasado
+          ),
+        ),
       ),
     );
   }

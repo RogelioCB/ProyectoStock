@@ -12,16 +12,16 @@ class PantallaPrincipal extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.white,
-        backgroundColor: Colors.grey[800],
+        backgroundColor: Colors.blue[900],
         title: Text('Pantalla Principal'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            AddMaterialButton(),
-            SizedBox(height: 20),
             DropdownButtonMenuPrincipal(),
+            SizedBox(height: 20),
+            AddMaterialButton(),
             SizedBox(height: 20),
             Project_button(),
             SizedBox(height: 20),

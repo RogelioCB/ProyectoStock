@@ -22,10 +22,11 @@ class LoginPage extends StatelessWidget {
             Icon(
               Icons.lock,
               size: 100,
+              color: Colors.blue[900],
             ),
             SizedBox(height: 50),
             Text(
-              'Welcome back!',
+              'Introduce tu email y tu contraseña para acceder al stock',
               style: TextStyle(
                 color: Colors.grey[700],
                 fontSize: 16,
@@ -36,11 +37,13 @@ class LoginPage extends StatelessWidget {
               controller: _usernameController,
               labelText: 'Email',
               obscureText: false,
+              width: 450,
             ),
             SizedBox(height: 10),
             MyTextfildpassword(
               controller: _passwordController,
-              labelText: 'Password',
+              labelText: 'Contraseña',
+              width: 400,
               // No necesitas especificar obscureText aquí
             ),
             SizedBox(height: 25),
@@ -50,6 +53,7 @@ class LoginPage extends StatelessWidget {
                 String password = _passwordController.text.trim();
 
                 try {
+                  // ignore: unused_local_variable
                   UserCredential userCredential = await FirebaseAuth.instance
                       .signInWithEmailAndPassword(
                           email: email, password: password);
@@ -66,14 +70,14 @@ class LoginPage extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Colors.black,
+                backgroundColor: Colors.lightBlue,
                 shape: const StadiumBorder(),
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
               ),
               child: SizedBox(
                 width: double.infinity,
                 child: Text(
-                  'Login',
+                  'Iniciar sesión',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 20),
                 ),
