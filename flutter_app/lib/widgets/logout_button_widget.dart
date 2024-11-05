@@ -7,6 +7,7 @@ class LogoutButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return FancyButton(
       button_icon: Icons.logout,
       button_text: "  Cerrar sesión  ",

@@ -38,9 +38,16 @@ class _DropdownButtonMenuPrincipalState
           child: DropdownButton<String>(
             isExpanded: true,
             hint: Center(
-              child: Text(
-                "Stock",
-                style: TextStyle(color: Colors.white, fontSize: 28),
+                           child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.dehaze, color: Colors.white, size: 35,), // Added dehaze icon
+                  SizedBox(width: 30), // Spacing between icon and text
+                  Text(
+                    "Stock",
+                    style: TextStyle(color: Colors.white, fontSize: 28),
+                  ),
+                ],
               ),
             ),
             value: _opcionSeleccionada,

@@ -4,6 +4,8 @@ import 'package:flutter_app/widgets/dropdown_stock_button_widget.dart';
 import 'package:flutter_app/widgets/logout_button_widget.dart';
 import 'package:flutter_app/widgets/material_input_button.dart';
 
+import '../widgets/exit_button.dart';
+
 class PantallaPrincipal extends StatelessWidget {
   const PantallaPrincipal({super.key});
 
@@ -22,6 +24,8 @@ class PantallaPrincipal extends StatelessWidget {
             DropdownButtonMenuPrincipal(),
             SizedBox(height: 20),
             AddMaterialButton(),
+            SizedBox(height: 20),
+            botonsalidas(),
             SizedBox(height: 20),
             Project_button(),
             SizedBox(height: 20),

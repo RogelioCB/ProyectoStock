@@ -8,7 +8,7 @@ class Project_screen extends StatefulWidget {
 }
 
 class _Project_screenState extends State<Project_screen> {
-  int click = 0;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
