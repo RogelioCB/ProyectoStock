@@ -21,10 +21,45 @@ class LogoutButton extends StatelessWidget {
       icon_size: 40,
       button_text_size: 28,
       onClick: () {
-        // Navegar a la página LoginPage
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => LoginPage()),
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Center(child: Text("Confirmación")),
+              content: Text(
+                "¿Estás seguro de que deseas cerrar sesión?",
+                textAlign: TextAlign.center,
+              ),
+              actions: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(
+                      child: Text("Cancelar"),
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.blue,
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    TextButton(
+                      child: Text("Salir"),
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.red,
+                      ),
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            );
+          },
         );
       },
     );
