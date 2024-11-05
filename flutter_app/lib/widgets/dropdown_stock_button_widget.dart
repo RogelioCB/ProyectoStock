@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/location_stock_screen.dart';
-import 'package:flutter_app/pages/material_record_screen.dart';
+import 'package:flutter_app/pages/material_relocation_screen.dart';
 import 'package:flutter_app/pages/material_stock_screen.dart';
 
 class DropdownButtonMenuPrincipal extends StatefulWidget {
@@ -15,9 +15,9 @@ class _DropdownButtonMenuPrincipalState
     extends State<DropdownButtonMenuPrincipal> {
   // Lista de opciones para el desplegable
   final List<String> _opciones = [
-    'Stock producto',
-    'Stock Ubicacion',
-    'Registro uso material'
+    'Stock Producto',
+    'Stock Ubicación',
+    'Reubicación Producto'
   ];
   // Valor seleccionado actualmente
   String? _opcionSeleccionada;
@@ -71,21 +71,25 @@ class _DropdownButtonMenuPrincipalState
 
   // Función para navegar a la pantalla seleccionada
   void _navegarAPantalla(BuildContext context, String? opcion) {
-    if (opcion == 'Stock producto') {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => PantallaStockProducto()),
-      );
-    } else if (opcion == 'Stock Ubicacion') {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => PantallaStockUbicacion()),
-      );
-    } else if (opcion == 'Registro uso material') {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => PantallaRegistroMaterial()),
-      );
+    Widget pantalla;
+
+    if (opcion == 'Stock Producto') {
+      pantalla = PantallaStockProducto();
+    } else if (opcion == 'Stock Ubicación') {
+      pantalla = PantallaStockUbicacion();
+    } else if (opcion == 'Reubicación Producto') {
+      pantalla = PantallaReubicacionMaterial();
+    } else {
+      return;
     }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => pantalla),
+    ).then((_) {
+      setState(() {
+        _opcionSeleccionada = null;
+      });
+    });
   }
 }
