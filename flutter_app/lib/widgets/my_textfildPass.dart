@@ -4,12 +4,16 @@ class MyTextfildpassword extends StatefulWidget {
   final TextEditingController controller;
   final String labelText;
   final double width;
+  final FocusNode? focusNode; // Add focusNode parameter
+  final void Function(String)? onFieldSubmitted; // Add onFieldSubmitted parameter
 
   const MyTextfildpassword({
     Key? key,
     required this.controller,
     required this.labelText,
     this.width = double.infinity,
+    this.focusNode, // Initialize focusNode
+    this.onFieldSubmitted, // Initialize onFieldSubmitted
   }) : super(key: key);
 
   @override
@@ -21,11 +25,13 @@ class _MyTextfildpasswordState extends State<MyTextfildpassword> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox( // Usa SizedBox para aplicar el ancho
-      width: widget.width, // Asigna el ancho
+    return SizedBox(
+      width: widget.width,
       child: TextField(
         controller: widget.controller,
         obscureText: _isObscured,
+        focusNode: widget.focusNode, // Set the focusNode here
+        onSubmitted: widget.onFieldSubmitted, // Set onSubmitted here
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
